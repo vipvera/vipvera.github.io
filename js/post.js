@@ -92,7 +92,7 @@ $(document).ready(function(){
             var tmpl = genTmpl();
             var indexCon = '<div id="menuIndex" class="sidenav"></div>';
 
-            $('#content').append(indexCon);
+            $('.entry').append(indexCon);
 
             $('#menuIndex')
                 .append($(tmpl))
