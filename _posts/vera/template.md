@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 
-category: verainfo
+category: vera
 description:
 ---
 # [{{ page.title }}][1]
