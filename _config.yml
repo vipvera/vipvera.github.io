@@ -6,6 +6,6 @@ paginate: 8
 permalink: /:title
 
 title:  vera
-url: http://vera.ren
+url: vipvera.github.io
 feed: /atom.xml
 author_info: <a href="https://github.com/vipvera">vera</a>
