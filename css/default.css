@@ -183,3 +183,35 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 @media (max-width: 1300px){
     .home-menu { position:absolute; }
 }
+
+table{
+    width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+
+table>th{
+    padding: 8px;
+  line-height: 1.42857143;
+      vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+    border: 1px solid #ddd;
+    border-bottom-width: 2px;
+    text-align: center;
+}
+
+table>td{
+      padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+    border: 1px solid #ddd;
+}
+
+
+
+
+
+
