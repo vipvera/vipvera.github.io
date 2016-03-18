@@ -167,12 +167,12 @@ $(document).ready(function(){
                                 }
                             }
                         }
-                        //console.log($('[data-id="menuIndex'+index+'"]'),$('[data-id="menuIndex'+index+'"]').parent())
-                        $('#menuIndex li').removeClass('on');
-                        // $('[data-id="menuIndex'+index+'"]').addClass('on');
-                        // $('[data-id="menuIndex'+index+'"]').parent().addClass('on');
-                        $('#menuIndex li').eq(index-1).addClass('on');
-                        $('#menuIndex li').eq(index-1).parents('li').addClass('on');
+                        if(index>0){
+                            $('#menuIndex li').removeClass('on');
+                            $('#menuIndex li').eq(index-1).addClass('on');
+                            $('#menuIndex li').eq(index-1).parents('li').addClass('on');
+                        }
+                        
                     });
                 });
 
