@@ -1,6 +1,6 @@
 ---
 layout: post
-title: vera 1.0.0版本发布了
+title:  vera 1.0.0 设计原稿
 description: 
 category: blog
 ---
