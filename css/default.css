@@ -126,14 +126,23 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 
 /**************目录导航**************/
 #menuIndex {overflow:auto;}
-#menuIndex a {display:block; padding:2px 0; }
+#menuIndex ul a {display:block; padding:2px 0; }
+#menuIndex ul .on a{border-left: 1px solid #563d7c; padding-left: 5px; color: #563d7c;}
+#menuIndex ul .on ul a{color:#555;border: none;padding:2px 0}
+#menuIndex ul .on ul .on a {border-left: 1px solid #563d7c; padding-left: 5px; color: #563d7c; }
+
 #menuIndex a:hover {text-decoration:none;}
 #menuIndex ul {margin-bottom:10px;}
 #menuIndex ul li{font-size:12px;margin-bottom:5px;word-wrap:break-word;padding-left:10px;}
-#menuIndex ul li.on a{border-left: 3px solid #563d7c; color: #563d7c;}
-#menuIndex ul li.on .h3{display: inherit;}
-#menuIndex li.h1{font-size:14px;font-weight:normal;padding-left:0;margin-bottom:10px;}
-#menuIndex li.h3{padding-left:25px;display: none;}
+
+
+#menuIndex .h1{font-size:14px;font-weight:normal;padding-left:0;margin-bottom:10px;}
+#menuIndex .h3{padding-left:25px;display: none;}
+#menuIndex .on .h3{display: inherit;}
+
+
+
+
 
 .home-menu { position:fixed; top:15px; left:15px; z-index:5; font-size:0; }
 .home-menu-icon { line-height:38px; padding:0 8px; display:inline-block; color:#fff; font-size:18px;  background:#000; }
