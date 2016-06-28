@@ -46,7 +46,7 @@ api 详情如下
 
 同vera2.0
 
-## Header
+## Header页头
 
 ### 用法：
 
@@ -54,7 +54,7 @@ api 详情如下
 	....
 	<Header text="快捷支付" isBack={true} isClose={true}/>
 
-### 参数	
+### 参数:	
 
 	Header.propTypes = {
 	  text: PropTypes.string.isRequired,
@@ -68,10 +68,138 @@ api 详情如下
 
 + isClose 是否带关闭按钮
 
-## Button
+## Banner横幅
 
+### 用法：
 
+	<div className="banner">这是一个默认的 banner 条</div>
 
+### 参数：
+
+    无
+
+## Button按钮
+
+### 用法：
+
+	import Button from '../components/vera/Button'
+	...
+	<Button text="确定" isAble={stores.pub.mybtnBlock} handleClick={actions.fetchUserName}/>
+
+### 参数：
+	
+	Button.propTypes = {
+	  text: PropTypes.string.isRequired,
+	  isAble: PropTypes.bool.isRequired,
+	  handleClick: PropTypes.func
+	}
+
+	+ text 按钮上文字
+
+	+ isAble 是否可点击
+
+	+ handleClick 按钮点击事件
+
+## Radio单选框
+
+### 用法：
+
+	import Radio from '../components/vera/Radio'
+	import RadioButton from '../components/vera/RadioButton'
+	...
+	<Radio handleToggle={actions.toggleRadioGroup}>
+      <RadioButton text={stores.pub.myRadioGroup.group[0].text} isDisabled={stores.pub.myRadioGroup.group[0].isDisabled} isChecked={stores.pub.myRadioGroup.group[0].isChecked} value={stores.pub.myRadioGroup.group[0].value} ></RadioButton>
+      <RadioButton text={stores.pub.myRadioGroup.group[1].text} isDisabled={stores.pub.myRadioGroup.group[1].isDisabled} isChecked={stores.pub.myRadioGroup.group[1].isChecked} value={stores.pub.myRadioGroup.group[1].value}></RadioButton>
+      <RadioButton text={stores.pub.myRadioGroup.group[2].text} isDisabled={stores.pub.myRadioGroup.group[2].isDisabled} isChecked={stores.pub.myRadioGroup.group[2].isChecked} value={stores.pub.myRadioGroup.group[2].value} ></RadioButton>
+      <RadioButton text={stores.pub.myRadioGroup.group[3].text} isDisabled={stores.pub.myRadioGroup.group[3].isDisabled} isChecked={stores.pub.myRadioGroup.group[3].isChecked} value={stores.pub.myRadioGroup.group[3].value} ></RadioButton>
+    </Radio>
+
+### 参数：
+
+	Radio.propTypes = {
+	  handleToggle: PropTypes.func.isRequired,
+	  children: childrenPropType
+	}
+
+	+ handleToggle 单选点击事件，返回当前单选框组选中的项value值
+
+	RadioButton.propTypes = {
+	  text: PropTypes.string.isRequired,
+	  value: PropTypes.string.isRequired,
+	  isChecked: PropTypes.bool,
+	  isDisabled: PropTypes.bool
+	}
+
+	+ text 单选选项文字
+
+	+ value 单选选项值
+
+	+ isChecked 单选选项是否已选中，可不填写，默认未选中
+
+	+ isDisabled 单选选项是否可选，可不填写，默认可选
+
+## Checkbox多选框
+
+### 用法：
+
+	import Checkbox from '../components/vera/Checkbox'
+	...
+	 <Checkbox text={stores.pub.myCheckboxList[0].text} isDisabled={stores.pub.myCheckboxList[0].isDisabled } isChecked={stores.pub.myCheckboxList[0].isChecked} handleToggle={actions.toggleCB1}></Checkbox>
+
+### 参数：
+
+	Checkbox.propTypes = {
+	  text: PropTypes.string.isRequired,
+	  isDisabled: PropTypes.bool,
+	  isChecked: PropTypes.bool,
+	  handleToggle: PropTypes.func.isRequired
+	}
+
+	+ text 多选框选项文字
+
+	+ isDisabled 多选框是否可选，可不填写，默认可选
+
+	+ isChecked 多选框是否已选中，可不填写，默认未选中
+
+	+ handleToggle 多选框点击事件，返回当前选项是否选中
+
+## Input输入框
+
+### 用法：
+
+	import Input from '../components/vera/Input'
+	...
+	<Input value={stores.pub.myIpt.val} type="password" placeholder="用户名" id="myIpt" isError={stores.pub.myIpt.isError} writeValue={actions.myIptValue}/>
+
+### 参数：
+
+	Input.propTypes = {
+	  id: PropTypes.string.isRequired,
+	  type: PropTypes.string.isRequired,
+	  placeholder: PropTypes.string.isRequired,
+	  isError: PropTypes.bool.isRequired,
+	  writeValue: PropTypes.func.isRequired
+	}
+
+	+ id 输入框ID
+
+	+ type 输入框类型，同html input原生类型
+
+	+ placeholder 输入框未输入时默认显示文字
+
+	+ isError 输入框是否报错显示
+
+	+ writeValue 输入框值有变化时的事件，返回输入框内容
+
+## IdentifyingCodeInput获取验证码输入验证码
+
+### 用法：
+
+	import IdentifyingCodeInput from '../components/vera/IdentifyingCodeInput'
+	...
+	<IdentifyingCodeInput id="myIdentifying" writeValue={actions.writeIdentifyCode} getIdentifyCode={actions.fetchIdentifyCode}/>
+
+### 参数：
 
 
 
