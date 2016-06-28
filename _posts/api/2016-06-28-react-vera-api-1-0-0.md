@@ -114,11 +114,11 @@ api 详情如下
 	  handleClick: PropTypes.func
 	}
 
-	+ text 按钮上文字
++ text 按钮上文字
 
-	+ isAble 是否可点击
++ isAble 是否可点击
 
-	+ handleClick 按钮点击事件
++ handleClick 按钮点击事件
 
 ## Radio单选框
 
@@ -141,7 +141,7 @@ api 详情如下
 	  children: childrenPropType
 	}
 
-	+ handleToggle 单选点击事件，返回当前单选框组选中的项value值
++ handleToggle 单选点击事件，返回当前单选框组选中的项value值
 
 	RadioButton.propTypes = {
 	  text: PropTypes.string.isRequired,
@@ -150,13 +150,13 @@ api 详情如下
 	  isDisabled: PropTypes.bool
 	}
 
-	+ text 单选选项文字
++ text 单选选项文字
 
-	+ value 单选选项值
++ value 单选选项值
 
-	+ isChecked 单选选项是否已选中，可不填写，默认未选中
++ isChecked 单选选项是否已选中，可不填写，默认未选中
 
-	+ isDisabled 单选选项是否可选，可不填写，默认可选
++ isDisabled 单选选项是否可选，可不填写，默认可选
 
 ## Checkbox多选框
 
@@ -175,13 +175,13 @@ api 详情如下
 	  handleToggle: PropTypes.func.isRequired
 	}
 
-	+ text 多选框选项文字
++ text 多选框选项文字
 
-	+ isDisabled 多选框是否可选，可不填写，默认可选
++ isDisabled 多选框是否可选，可不填写，默认可选
 
-	+ isChecked 多选框是否已选中，可不填写，默认未选中
++ isChecked 多选框是否已选中，可不填写，默认未选中
 
-	+ handleToggle 多选框点击事件，返回当前选项是否选中
++ handleToggle 多选框点击事件，返回当前选项是否选中
 
 ## Input输入框
 
@@ -201,15 +201,15 @@ api 详情如下
 	  writeValue: PropTypes.func.isRequired
 	}
 
-	+ id 输入框ID
++ id 输入框ID
 
-	+ type 输入框类型，同html input原生类型
++ type 输入框类型，同html input原生类型
 
-	+ placeholder 输入框未输入时默认显示文字
++ placeholder 输入框未输入时默认显示文字
 
-	+ isError 输入框是否报错显示
++ isError 输入框是否报错显示
 
-	+ writeValue 输入框值有变化时的事件，返回输入框内容
++ writeValue 输入框值有变化时的事件，返回输入框内容
 
 ## IdentifyingCodeInput获取验证码输入验证码
 
@@ -239,11 +239,11 @@ api 详情如下
 	  schemaContent: PropTypes.string.isRequired
 	}
 
-	+ lists 给tab提供数据的列表，array格式[]
++ lists 给tab提供数据的列表，array格式[]
 
-	+ schemaTitle Tab的title绑定的数据字段
++ schemaTitle Tab的title绑定的数据字段
 
-	+ schemaContent Tab的panel绑定的数据字段
++ schemaContent Tab的panel绑定的数据字段
 
 	例如myTab:[
         {tabButton:"信用卡",tabPanel:"Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park."},
@@ -268,9 +268,9 @@ api 详情如下
 	    isShow:PropTypes.string.isRequired
 	}
 
-	+ text 提示框内显示文字
++ text 提示框内显示文字
 
-	+ isShow 需要显示的时候此值给一个与上次不一样的字符串，string类型
++ isShow 需要显示的时候此值给一个与上次不一样的字符串，string类型
 
 	例如{ traceBlock: new Date().getTime().toString() }
 
@@ -294,7 +294,7 @@ api 详情如下
 	    isShow:PropTypes.bool.isRequired,
 	}
 
-	+ contentData 对话框内的显示内容，必须有title 提示标题、text 提示内容、bottom 提示底部，底部又可包含ok和cancel两个按钮
++ contentData 对话框内的显示内容，必须有title 提示标题、text 提示内容、bottom 提示底部，底部又可包含ok和cancel两个按钮
 
 	例如var toast = {
 				      title:"提示信息",
@@ -308,7 +308,7 @@ api 详情如下
 				      }
 				    }
 
-	+ isShow 是否显示，bool类型true/false
++ isShow 是否显示，bool类型true/false
 
 
 
