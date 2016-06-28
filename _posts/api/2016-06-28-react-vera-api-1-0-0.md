@@ -11,15 +11,15 @@ description: react vera component 1.0.0版本的api文档
 
 1 vera component 源码地址
 
-git@gitlab.tools.vipshop.com:wikies.wan/vera.git
+	git@gitlab.tools.vipshop.com:wikies.wan/vera.git
 
-分支 react-vera
+	分支 react-vera
 
 2 样例地址：
 
-git@gitlab.tools.vipshop.com:wikies.wan/vera-react-demo.git
+	git@gitlab.tools.vipshop.com:wikies.wan/vera-react-demo.git
 
-分支 master
+	分支 master
 
 
 ### 使用方法
@@ -41,6 +41,10 @@ git@gitlab.tools.vipshop.com:wikies.wan/vera-react-demo.git
 
 
 api 详情如下
+
+## 栅格系统
+
+同vera2.0
 
 ## Header
 
@@ -64,7 +68,7 @@ api 详情如下
 
 + isClose 是否带关闭按钮
 
-
+## Button
 
 
 
