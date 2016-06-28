@@ -221,7 +221,94 @@ api 详情如下
 
 ### 参数：
 
+	无
 
+## Tab
+
+### 用法：
+
+	import Tab from '../components/vera/Tab'
+	...
+	<Tab lists={stores.pub.myTab} schemaTitle="tabButton" schemaContent="tabPanel"></Tab>
+
+### 参数：
+
+	Tab.propTypes = {
+	  lists: PropTypes.array.isRequired,
+	  schemaTitle: PropTypes.string.isRequired,
+	  schemaContent: PropTypes.string.isRequired
+	}
+
+	+ lists 给tab提供数据的列表，array格式[]
+
+	+ schemaTitle Tab的title绑定的数据字段
+
+	+ schemaContent Tab的panel绑定的数据字段
+
+	例如myTab:[
+        {tabButton:"信用卡",tabPanel:"Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park."},
+        {tabButton:"储蓄卡",tabPanel:"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
+        {tabButton:"测试",tabPanel:"feafefaeefae"}
+      ]
+
+    按照移动端的业务需求，目前最多支持2个tab切换，如果输入更多，最多显示两个，剩余忽略
+
+## Trace提示框
+
+### 用法：
+
+	import Trace from '../components/vera/Trace'
+	...
+	<Trace isShow={stores.pub.myTrace.traceBlock} text={stores.pub.myTrace.text} >this is trace</Trace>
+
+### 参数：
+
+	Trace.propTypes = {
+	    text: PropTypes.string.isRequired,
+	    isShow:PropTypes.string.isRequired
+	}
+
+	+ text 提示框内显示文字
+
+	+ isShow 需要显示的时候此值给一个与上次不一样的字符串，string类型
+
+	例如{ traceBlock: new Date().getTime().toString() }
+
+## Toast对话框
+
+### 用法：
+
+	import Toast from '../components/vera/Toast'
+	...
+	<Toast isShow={stores.pub.toastBlock} contentData={toast}>this is toast</Toast>
+
+### 参数：
+
+	Toast.propTypes = {
+	    contentData: PropTypes.shape({
+	      title: PropTypes.string,
+	      text: PropTypes.string,
+	      bottom:PropTypes.object.isRequired,
+	    }).isRequired,
+	    children: PropTypes.node,
+	    isShow:PropTypes.bool.isRequired,
+	}
+
+	+ contentData 对话框内的显示内容，必须有title 提示标题、text 提示内容、bottom 提示底部，底部又可包含ok和cancel两个按钮
+
+	例如var toast = {
+				      title:"提示信息",
+				      text:"提示内容",
+				      bottom:{
+				        cancel:"cancel",
+				        ok:"ok",
+				        disabled:false,
+				        okEvent:actions.myToastHide,
+				        cancelEvent:actions.myToastHide
+				      }
+				    }
+
+	+ isShow 是否显示，bool类型true/false
 
 
 
