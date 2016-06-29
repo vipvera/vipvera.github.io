@@ -365,13 +365,13 @@ api 详情如下
 + schemaContent Tab的panel绑定的数据字段
 
 	例如
-####
+```
 	myTab:[
         {tabButton:"信用卡",tabPanel:"信用卡tab panel内容"},
         {tabButton:"储蓄卡",tabPanel:"储蓄卡tab panel内容"},
         {tabButton:"测试",tabPanel:"多于2个不显示"}
     ]
-
+```
     按照移动端的业务需求，Tab可以是一个，最多支持2个Tab切换，如果输入更多，最多显示两个，其余忽略
 
 ## Trace提示框
