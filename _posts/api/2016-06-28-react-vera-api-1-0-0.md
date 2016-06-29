@@ -365,11 +365,11 @@ api 详情如下
 + schemaContent Tab的panel绑定的数据字段
 
 	例如
-	### myTab:[
+### myTab:[
         {tabButton:"信用卡",tabPanel:"信用卡tab panel内容"},
         {tabButton:"储蓄卡",tabPanel:"储蓄卡tab panel内容"},
         {tabButton:"测试",tabPanel:"多于2个不显示"}
-      ]
+    ]
 
     按照移动端的业务需求，Tab可以是一个，最多支持2个Tab切换，如果输入更多，最多显示两个，其余忽略
 
@@ -426,17 +426,17 @@ api 详情如下
 + contentData 对话框内的显示内容，必须有title 提示标题、text 提示内容、bottom 提示底部信息，例如底部可包含ok和cancel两个按钮相关显示信息和点击后的操作
 
 	例如
-	### var toast = {
-				      title:"提示信息",
-				      text:"提示内容",
-				      bottom:{
+### var toast = {
+				    title:"提示信息",
+				    text:"提示内容",
+				    bottom:{
 				        cancel:"cancel",
 				        ok:"ok",
 				        disabled:false,
 				        okEvent:actions.myToastHide,
 				        cancelEvent:actions.myToastHide
-				      }
 				    }
+				}
 
 + isShow 是否显示，bool类型true/false
 
@@ -475,14 +475,14 @@ api 详情如下
 + contentData 对话框显示的内容，可以有title 对话框标题、subTitle 对话框副标题，必须有bottom 底部信息例如cancel提供相关显示信息和点击后的操作
 
 	例如
-	### var dialog = {
-					    title:"提示信息",
-					    subTitle:'子标题',
-					    bottom:{
-					        cancel:"cancel",
-					        cancelEvent:actions.myDialogHide
-					    }
+### var dialog = {
+					  title:"提示信息",
+					  subTitle:'子标题',
+					  bottom:{
+					      cancel:"cancel",
+					      cancelEvent:actions.myDialogHide
 					  }
+				  }
 
 + isShow 是否显示，bool类型true/false
 
