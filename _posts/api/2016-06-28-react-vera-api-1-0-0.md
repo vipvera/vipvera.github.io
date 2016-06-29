@@ -380,20 +380,25 @@ api 详情如下
 
 	import Trace from '../components/vera/Trace'
 	...
-	<Trace isShow={stores.pub.myTrace.traceBlock} text={stores.pub.myTrace.text} >this is trace</Trace>
+	<Trace 
+		isShow={stores.pub.myTrace.traceBlock} 
+		text={stores.pub.myTrace.text} 
+		handleHide={actions.myTraceHide} >
+	</Trace>
 
 ### 参数：
 
 	Trace.propTypes = {
 	    text: PropTypes.string.isRequired,
-	    isShow:PropTypes.string.isRequired
+	    isShow: PropTypes.bool.isRequired,
+	    handleHide: PropTypes.func.isRequired
 	}
 
 + text 提示框内显示文字
 
-+ isShow 是否显示，string类型，需要显示的时候此值给和上次不一样的字符串!
++ isShow 是否显示，bool类型true/false
 
-	例如{ isShow: new Date().getTime().toString() }
++ handleHide Trace隐藏事件
 
 ## Toast对话框
 
