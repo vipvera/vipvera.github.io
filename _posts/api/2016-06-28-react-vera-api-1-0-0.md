@@ -47,10 +47,10 @@ Redux 和 React 是没有必然关系的，Redux 用于管理 state，与具体�
 
 组件分为两种：smart component vs dumb component
 
-  | Location | Use React-Redux | To read data, they | To change data, they
+  null | Location | Use React-Redux | To read data, they | To change data, they
  ----|----|----|----|----
- “Smart” Components | Top level, route handlers | Yes | Subscribe to Redux state | Dispatch Redux actions
-“Dumb” Components | 	Middle and leaf components | 	No | 	Read data from props | 	Invoke callbacks from props
+ “Smart” Components	 | Top level, route handlers	 | Yes	 | Subscribe to Redux state | 	Dispatch Redux actions
+“Dumb” Components | Middle and leaf components | 	No | 	Read data from props | 	Invoke callbacks from props
 
 简单来看：Smart component` 是连接 Redux 的组件（@connect），一般不可复用。Dumb component 是纯粹的组件，一般可复用。
 两者的共同点是：无状态，或者说状态提取到上层，统一由 redux 的 store 来管理。redux state -> Smart component -> Dumb component -> Dumb component（通过 props 传递）。在实践中，少量 Dumb component 允许自带 UI 状态信息（组件 unmount 后，不需要保留 UI 状态）。
