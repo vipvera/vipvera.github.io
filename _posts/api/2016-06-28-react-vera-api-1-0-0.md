@@ -365,7 +365,7 @@ api 详情如下
 + schemaContent Tab的panel绑定的数据字段
 
 	例如
-### 
+####
 	myTab:[
         {tabButton:"信用卡",tabPanel:"信用卡tab panel内容"},
         {tabButton:"储蓄卡",tabPanel:"储蓄卡tab panel内容"},
