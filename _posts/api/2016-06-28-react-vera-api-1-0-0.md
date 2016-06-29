@@ -84,9 +84,9 @@ api 详情如下
 
 + text 展示的文字
 
-+ isBack 是否带返回箭头
++ isBack 是否带返回箭头，bool类型true/false
 
-+ isClose 是否带关闭按钮
++ isClose 是否带关闭按钮，bool类型true/false
 
 ## Banner横幅
 
@@ -116,7 +116,7 @@ api 详情如下
 
 + text 按钮上文字
 
-+ isAble 是否可点击
++ isAble 是否可点击，bool类型true/false
 
 + handleClick 按钮点击事件
 
@@ -141,8 +141,9 @@ api 详情如下
 	  children: childrenPropType
 	}
 
-+ handleToggle 单选点击事件，返回当前单选框组选中的项value值
++ handleToggle 单选点击事件，返回当前单选框组选中的项value值！
 
+### 
 	RadioButton.propTypes = {
 	  text: PropTypes.string.isRequired,
 	  value: PropTypes.string.isRequired,
@@ -154,9 +155,9 @@ api 详情如下
 
 + value 单选选项值
 
-+ isChecked 单选选项是否已选中，可不填写，默认未选中
++ isChecked 单选选项是否已选中，bool类型true/false，可不填写，默认未选中
 
-+ isDisabled 单选选项是否可选，可不填写，默认可选
++ isDisabled 单选选项是否可选，bool类型true/false，可不填写，默认可选
 
 ## Checkbox多选框
 
@@ -177,11 +178,11 @@ api 详情如下
 
 + text 多选框选项文字
 
-+ isDisabled 多选框是否可选，可不填写，默认可选
++ isDisabled 多选框是否可选，bool类型true/false，可不填写，默认可选
 
-+ isChecked 多选框是否已选中，可不填写，默认未选中
++ isChecked 多选框是否已选中，bool类型true/false，可不填写，默认未选中
 
-+ handleToggle 多选框点击事件，返回当前选项是否选中
++ handleToggle 多选框点击事件，返回当前选项是否选中！
 
 ## Input输入框
 
@@ -207,9 +208,9 @@ api 详情如下
 
 + placeholder 输入框未输入时默认显示文字
 
-+ isError 输入框是否报错显示
++ isError 输入框是否报错显示，bool类型true/false
 
-+ writeValue 输入框值有变化时的事件，返回输入框内容
++ writeValue 输入框值变化事件，返回输入框内容！
 
 ## IdentifyingCodeInput获取验证码输入验证码
 
@@ -239,7 +240,7 @@ api 详情如下
 	  schemaContent: PropTypes.string.isRequired
 	}
 
-+ lists 给tab提供数据的列表，array格式[]
++ lists 给tab提供数据的列表，array类型
 
 + schemaTitle Tab的title绑定的数据字段
 
@@ -270,9 +271,9 @@ api 详情如下
 
 + text 提示框内显示文字
 
-+ isShow 需要显示的时候此值给一个与上次不一样的字符串，string类型
++ isShow 是否显示，string类型，需要显示的时候此值只要和上次不一样的字符串!
 
-	例如{ traceBlock: new Date().getTime().toString() }
+	例如{ isShow: new Date().getTime().toString() }
 
 ## Toast对话框
 
@@ -294,7 +295,7 @@ api 详情如下
 	    isShow:PropTypes.bool.isRequired,
 	}
 
-+ contentData 对话框内的显示内容，必须有title 提示标题、text 提示内容、bottom 提示底部，底部又可包含ok和cancel两个按钮
++ contentData 对话框内的显示内容，必须有title 提示标题、text 提示内容、bottom 提示底部信息，例如底部可包含ok和cancel两个按钮相关显示信息和点击后的操作
 
 	例如var toast = {
 				      title:"提示信息",
@@ -309,6 +310,68 @@ api 详情如下
 				    }
 
 + isShow 是否显示，bool类型true/false
+
+## Dialoge对话框
+
+### 用法：
+
+	import Dialog from '../components/vera/Dialog'
+	...
+	<Dialog  isShow={stores.pub.dialogBlock} contentData={dialog}>
+      	<h1>this is dialog </h1>
+      	<Input 
+	        value={stores.pub.myIpt.val} 
+	        type="password"
+	        placeholder="用户名"
+	        id="myIpt"
+	        isError={stores.pub.myIpt.isError}
+	        writeValue={actions.myIptValue}/>
+	         <p>this is dialog bottom</p>
+    </Dialog>
+
+### 参数：
+
+	Dialog.propTypes = {
+		contentData:PropTypes.shape({
+		    title: PropTypes.string,
+		    subTitle: PropTypes.string,
+		    bottom:PropTypes.object.isRequired,
+		}).isRequired,
+		children: PropTypes.node,
+		isShow:PropTypes.bool.isRequired,
+	}
+
++ contentData 对话框显示的内容，可以有title 对话框标题、subTitle 对话框副标题，必须有bottom 底部信息例如cancel提供相关显示信息和点击后的操作
+
+	例如var dialog = {
+					    title:"提示信息",
+					    subTitle:'子标题',
+					    bottom:{
+					        cancel:"cancel",
+					        cancelEvent:actions.myDialogHide
+					    }
+					  }
+
++ isShow 是否显示，bool类型true/false
+
+## Switcher开关
+
+### 用法：
+
+	import Switcher from '../components/vera/Switcher'
+	...
+	<Switcher isOn={stores.pub.mySwitcher.isOn} handleToggle={actions.toggleSwitcher}></Switcher>
+
+### 参数：
+
+	Switcher.propTypes = {
+	    isOn:PropTypes.bool.isRequired,
+	    handleToggle: PropTypes.func.isRequired
+	}
+
++ isOn 是否开或关，bool类型true/false
+
++ handleToggle 开关点击事件
 
 
 
