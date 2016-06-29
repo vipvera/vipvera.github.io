@@ -74,14 +74,17 @@ api 详情如下
 
 	import Header from '../lib/vera/Header'
 	....
-	<Header text="快捷支付" isBack={true} isClose={true}/>
+	<Header 
+		text="快捷支付" 
+		isBack={true} 
+		isClose={true}/>
 
 ### 参数:	
 
 	Header.propTypes = {
-	  text: PropTypes.string.isRequired,
-	  isBack: PropTypes.bool.isRequired,
-	  isClose: PropTypes.bool.isRequired
+	  	text: PropTypes.string.isRequired,
+	  	isBack: PropTypes.bool.isRequired,
+	  	isClose: PropTypes.bool.isRequired
 	}
 
 + text 展示的文字
@@ -110,14 +113,17 @@ api 详情如下
 
 	import Button from '../components/vera/Button'
 	...
-	<Button text="确定" isAble={stores.pub.mybtnBlock} handleClick={actions.fetchUserName}/>
+	<Button 
+		text="确定" 
+		isAble={stores.pub.mybtnBlock} 
+		handleClick={actions.fetchUserName}/>
 
 ### 参数：
 	
 	Button.propTypes = {
-	  text: PropTypes.string.isRequired,
-	  isAble: PropTypes.bool.isRequired,
-	  handleClick: PropTypes.func
+	  	text: PropTypes.string.isRequired,
+	  	isAble: PropTypes.bool.isRequired,
+	  	handleClick: PropTypes.func
 	}
 
 + text 按钮显示文字
@@ -134,7 +140,10 @@ api 详情如下
 
 	import Switcher from '../components/vera/Switcher'
 	...
-	<Switcher isOn={stores.pub.mySwitcher.isOn} handleToggle={actions.toggleSwitcher}></Switcher>
+	<Switcher 
+		isOn={stores.pub.mySwitcher.isOn} 
+		handleToggle={actions.toggleSwitcher}>
+	</Switcher>
 
 ### 参数：
 
@@ -157,27 +166,47 @@ api 详情如下
 	import RadioButton from '../components/vera/RadioButton'
 	...
 	<Radio handleToggle={actions.toggleRadioGroup}>
-      <RadioButton text={stores.pub.myRadioGroup.group[0].text} isDisabled={stores.pub.myRadioGroup.group[0].isDisabled} isChecked={stores.pub.myRadioGroup.group[0].isChecked} value={stores.pub.myRadioGroup.group[0].value} ></RadioButton>
-      <RadioButton text={stores.pub.myRadioGroup.group[1].text} isDisabled={stores.pub.myRadioGroup.group[1].isDisabled} isChecked={stores.pub.myRadioGroup.group[1].isChecked} value={stores.pub.myRadioGroup.group[1].value}></RadioButton>
-      <RadioButton text={stores.pub.myRadioGroup.group[2].text} isDisabled={stores.pub.myRadioGroup.group[2].isDisabled} isChecked={stores.pub.myRadioGroup.group[2].isChecked} value={stores.pub.myRadioGroup.group[2].value} ></RadioButton>
-      <RadioButton text={stores.pub.myRadioGroup.group[3].text} isDisabled={stores.pub.myRadioGroup.group[3].isDisabled} isChecked={stores.pub.myRadioGroup.group[3].isChecked} value={stores.pub.myRadioGroup.group[3].value} ></RadioButton>
+      	<RadioButton 
+      		text={stores.pub.myRadioGroup.group[0].text} 
+      		isDisabled={stores.pub.myRadioGroup.group[0].isDisabled} 
+      		isChecked={stores.pub.myRadioGroup.group[0].isChecked} 
+      		value={stores.pub.myRadioGroup.group[0].value} >
+      	</RadioButton>
+      	<RadioButton 
+      		text={stores.pub.myRadioGroup.group[1].text} 
+      		isDisabled={stores.pub.myRadioGroup.group[1].isDisabled} 
+      		isChecked={stores.pub.myRadioGroup.group[1].isChecked} 
+      		value={stores.pub.myRadioGroup.group[1].value}>
+      	</RadioButton>
+      	<RadioButton 
+      		text={stores.pub.myRadioGroup.group[2].text} 
+      		isDisabled={stores.pub.myRadioGroup.group[2].isDisabled} 
+      		isChecked={stores.pub.myRadioGroup.group[2].isChecked} 
+      		value={stores.pub.myRadioGroup.group[2].value} >
+      	</RadioButton>
+      	<RadioButton 
+      		text={stores.pub.myRadioGroup.group[3].text} 
+      		isDisabled={stores.pub.myRadioGroup.group[3].isDisabled} 
+      		isChecked={stores.pub.myRadioGroup.group[3].isChecked} 
+      		value={stores.pub.myRadioGroup.group[3].value} >
+      	</RadioButton>
     </Radio>
 
 ### 参数：
 
 	Radio.propTypes = {
-	  handleToggle: PropTypes.func.isRequired,
-	  children: childrenPropType
+	  	handleToggle: PropTypes.func.isRequired,
+	  	children: childrenPropType
 	}
 
 + handleToggle 单选点击事件，返回当前单选框组选中的项value值！
 
 ### 
 	RadioButton.propTypes = {
-	  text: PropTypes.string.isRequired,
-	  value: PropTypes.string.isRequired,
-	  isChecked: PropTypes.bool,
-	  isDisabled: PropTypes.bool
+	  	text: PropTypes.string.isRequired,
+	  	value: PropTypes.string.isRequired,
+	  	isChecked: PropTypes.bool,
+	  	isDisabled: PropTypes.bool
 	}
 
 + text 单选选项文字
@@ -196,15 +225,20 @@ api 详情如下
 
 	import Checkbox from '../components/vera/Checkbox'
 	...
-	 <Checkbox text={stores.pub.myCheckboxList[0].text} isDisabled={stores.pub.myCheckboxList[0].isDisabled } isChecked={stores.pub.myCheckboxList[0].isChecked} handleToggle={actions.toggleCB1}></Checkbox>
+	<Checkbox 
+	 	text={stores.pub.myCheckboxList[0].text} 
+	 	isDisabled={stores.pub.myCheckboxList[0].isDisabled } 
+	 	isChecked={stores.pub.myCheckboxList[0].isChecked} 
+	 	handleToggle={actions.toggleCB1}>
+	</Checkbox>
 
 ### 参数：
 
 	Checkbox.propTypes = {
-	  text: PropTypes.string.isRequired,
-	  isDisabled: PropTypes.bool,
-	  isChecked: PropTypes.bool,
-	  handleToggle: PropTypes.func.isRequired
+	  	text: PropTypes.string.isRequired,
+	  	isDisabled: PropTypes.bool,
+	  	isChecked: PropTypes.bool,
+	  	handleToggle: PropTypes.func.isRequired
 	}
 
 + text 多选框选项文字
@@ -223,16 +257,22 @@ api 详情如下
 
 	import Input from '../components/vera/Input'
 	...
-	<Input value={stores.pub.myIpt.val} type="password" placeholder="用户名" id="myIpt" isError={stores.pub.myIpt.isError} writeValue={actions.myIptValue}/>
+	<Input 
+		value={stores.pub.myIpt.val} 
+		type="password" 
+		placeholder="用户名" 
+		id="myIpt" 
+		isError={stores.pub.myIpt.isError} 
+		writeValue={actions.myIptValue}/>
 
 ### 参数：
 
 	Input.propTypes = {
-	  id: PropTypes.string.isRequired,
-	  type: PropTypes.string.isRequired,
-	  placeholder: PropTypes.string.isRequired,
-	  isError: PropTypes.bool.isRequired,
-	  writeValue: PropTypes.func.isRequired
+	  	id: PropTypes.string.isRequired,
+	  	type: PropTypes.string.isRequired,
+	  	placeholder: PropTypes.string.isRequired,
+	  	isError: PropTypes.bool.isRequired,
+	  	writeValue: PropTypes.func.isRequired
 	}
 
 + id 输入框ID
@@ -253,29 +293,54 @@ api 详情如下
 
 	import IdentifyingCodeInput from '../components/vera/IdentifyingCodeInput'
 	...
-	<IdentifyingCodeInput id="myIdentifying" writeValue={actions.writeIdentifyCode} getIdentifyCode={actions.fetchIdentifyCode} isCounted={stores.pub.myIdentifyCode.countdown} isWithTitle={true}/>
+	<IdentifyingCodeInput
+      	id="myIdentifying"
+      	writeValue={actions.writeIdentifyCode}
+      	getIdentifyCode={actions.fetchIdentifyCode}
+      	isCounting={stores.pub.myIdentifyCode.countdown}
+      	handleCount={actions.startIdentifyCodeCountdown}
+      	handleDisCount={actions.stopIdentifyCodeCountdown}
+      	isDisabled={stores.pub.myIdentifyCode.isDisabled}
+      	handleAble={actions.identifyCodeBtnAbled}
+      	handleDisable={actions.identifyCodeBtnDisabled}
+      	isWithTitle={true}/>
 
 ### 参数：
 
 	IdentifyingCodeInput.propTypes = {
-	    id: PropTypes.string.isRequired,
-	    writeValue: PropTypes.func.isRequired,
-	    getIdentifyCode: PropTypes.func.isRequired,
-	    isCounted: PropTypes.bool.isRequired,
-	    isWithTitle: PropTypes.bool.isRequired
+	  	id: PropTypes.string.isRequired,
+	  	writeValue: PropTypes.func.isRequired,
+	  	getIdentifyCode: PropTypes.func.isRequired,
+	  	isWithTitle: PropTypes.bool.isRequired,
+	  	isCounting: PropTypes.bool.isRequired,
+	  	handleCount: PropTypes.func.isRequired,
+	  	handleDisCount: PropTypes.func.isRequired,
+	  	isDisabled: PropTypes.bool.isRequired,
+	  	handleAble: PropTypes.func.isRequired,
+	  	handleDisable: PropTypes.func.isRequired
 	}
 
 + id 输入框ID
+
++ isWithTitle 是否显示左边“验证码”三个字，bool类型true/false
 
 + writeValue 输入框值变化事件，返回输入框内容！
 
 + getIdentifyCode 点击“获取验证码”按钮事件
 
-+ isCounted 是否倒计时，bool类型true/false
++ isCounting 是否倒计时，bool类型true/false
 
-+ isWithTitle 是否显示左边“验证码”三个字，bool类型true/false
++ handleCount 倒计时开始事件
 
-## Tab
++ handleDisCount 倒计时停止事件
+
++ isDisabled “获取验证码”按钮是否可点击，bool类型true/false
+
++ handleAble “获取验证码”按钮可点击事件
+
++ handleDisable “获取验证码”按钮不可点击事件
+
+## Tab选项卡
 
 ![tab 图片示例](images/examples/react-tab.gif)
 
