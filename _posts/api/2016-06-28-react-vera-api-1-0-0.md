@@ -218,11 +218,27 @@ api 详情如下
 
 	import IdentifyingCodeInput from '../components/vera/IdentifyingCodeInput'
 	...
-	<IdentifyingCodeInput id="myIdentifying" writeValue={actions.writeIdentifyCode} getIdentifyCode={actions.fetchIdentifyCode}/>
+	<IdentifyingCodeInput id="myIdentifying" writeValue={actions.writeIdentifyCode} getIdentifyCode={actions.fetchIdentifyCode} isCounted={stores.pub.myIdentifyCode.countdown} isWithTitle={true}/>
 
 ### 参数：
 
-	无
+	IdentifyingCodeInput.propTypes = {
+	    id: PropTypes.string.isRequired,
+	    writeValue: PropTypes.func.isRequired,
+	    getIdentifyCode: PropTypes.func.isRequired,
+	    isCounted: PropTypes.bool.isRequired,
+	    isWithTitle: PropTypes.bool.isRequired
+	}
+
++ id 输入框ID
+
++ writeValue 输入框值变化事件，返回输入框内容！
+
++ getIdentifyCode 点击“获取验证码”按钮事件
+
++ isCounted 是否倒计时，bool类型true/false
+
++ isWithTitle 是否显示左边“验证码”三个字，bool类型true/false
 
 ## Tab
 
