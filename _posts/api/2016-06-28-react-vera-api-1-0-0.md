@@ -68,6 +68,8 @@ api 详情如下
 
 ## Header页头
 
+![header 图片示例](images/examples/react-header.gif)
+
 ### 用法：
 
 	import Header from '../lib/vera/Header'
@@ -90,6 +92,8 @@ api 详情如下
 
 ## Banner横幅
 
+![banner 图片示例](images/examples/react-banner.gif)
+
 ### 用法：
 
 	<div className="banner">这是一个默认的 banner 条</div>
@@ -99,6 +103,8 @@ api 详情如下
     无
 
 ## Button按钮
+
+![btn 图片示例](images/examples/react-btn.gif)
 
 ### 用法：
 
@@ -114,13 +120,36 @@ api 详情如下
 	  handleClick: PropTypes.func
 	}
 
-+ text 按钮上文字
++ text 按钮显示文字
 
 + isAble 是否可点击，bool类型true/false
 
 + handleClick 按钮点击事件
 
+## Switcher开关
+
+![switcher 图片示例](images/examples/react-switcher.gif)
+
+### 用法：
+
+	import Switcher from '../components/vera/Switcher'
+	...
+	<Switcher isOn={stores.pub.mySwitcher.isOn} handleToggle={actions.toggleSwitcher}></Switcher>
+
+### 参数：
+
+	Switcher.propTypes = {
+	    isOn:PropTypes.bool.isRequired,
+	    handleToggle: PropTypes.func.isRequired
+	}
+
++ isOn 是否开或关，bool类型true/false
+
++ handleToggle 开关点击事件
+
 ## Radio单选框
+
+![radio 图片示例](images/examples/react-radio.gif)
 
 ### 用法：
 
@@ -161,6 +190,8 @@ api 详情如下
 
 ## Checkbox多选框
 
+![checkbox 图片示例](images/examples/react-checkbox.gif)
+
 ### 用法：
 
 	import Checkbox from '../components/vera/Checkbox'
@@ -185,6 +216,8 @@ api 详情如下
 + handleToggle 多选框点击事件，返回当前选项是否选中！
 
 ## Input输入框
+
+![input 图片示例](images/examples/react-input.gif)
 
 ### 用法：
 
@@ -214,6 +247,8 @@ api 详情如下
 
 ## IdentifyingCodeInput获取验证码输入验证码
 
+![identifyingCodeInput 图片示例](images/examples/react-identifyingCodeInput.gif)
+
 ### 用法：
 
 	import IdentifyingCodeInput from '../components/vera/IdentifyingCodeInput'
@@ -241,6 +276,8 @@ api 详情如下
 + isWithTitle 是否显示左边“验证码”三个字，bool类型true/false
 
 ## Tab
+
+![tab 图片示例](images/examples/react-tab.gif)
 
 ### 用法：
 
@@ -272,6 +309,8 @@ api 详情如下
 
 ## Trace提示框
 
+![trace 图片示例](images/examples/react-trace.gif)
+
 ### 用法：
 
 	import Trace from '../components/vera/Trace'
@@ -292,6 +331,8 @@ api 详情如下
 	例如{ isShow: new Date().getTime().toString() }
 
 ## Toast对话框
+
+![toast 图片示例](images/examples/react-toast.gif)
 
 ### 用法：
 
@@ -328,6 +369,8 @@ api 详情如下
 + isShow 是否显示，bool类型true/false
 
 ## Dialoge对话框
+
+![dialoge 图片示例](images/examples/react-dialoge.gif)
 
 ### 用法：
 
@@ -370,25 +413,26 @@ api 详情如下
 
 + isShow 是否显示，bool类型true/false
 
-## Switcher开关
+## Loading加载
+
+![loading 图片示例](images/examples/react-loading.gif)
 
 ### 用法：
-
-	import Switcher from '../components/vera/Switcher'
+	
+	import Loading from '../lib/vera/Loading'
 	...
-	<Switcher isOn={stores.pub.mySwitcher.isOn} handleToggle={actions.toggleSwitcher}></Switcher>
+	<Loading text="安全加载中" isShow={stores.pub.loadingBlock}/>
 
 ### 参数：
 
-	Switcher.propTypes = {
-	    isOn:PropTypes.bool.isRequired,
-	    handleToggle: PropTypes.func.isRequired
+	Loading.propTypes = {
+	    text: PropTypes.string.isRequired,
+	    isShow: PropTypes.bool.isRequired
 	}
 
-+ isOn 是否开或关，bool类型true/false
++ text 加载显示的文字
 
-+ handleToggle 开关点击事件
-
++ isShow 是否显示，bool类型true/false
 
 
 
