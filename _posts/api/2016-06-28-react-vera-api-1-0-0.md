@@ -270,7 +270,45 @@ api 详情如下
 
 + isChecked 多选框是否已选中，bool类型true/false，可不填写，默认未选中
 
-+ handleToggle 多选框点击事件，返回当前选项是否选中！
++ handleToggle 多选框点击事件，返回当前选项是否选中
+
+## Select单选列表
+
+![select 图片示例](images/examples/react-select.gif)
+
+### 用法：
+
+	import Select from '../components/vera/Select'
+	...
+	<Checkbox 
+	 	text={stores.pub.myCheckboxList[0].text} 
+	 	isDisabled={stores.pub.myCheckboxList[0].isDisabled } 
+	 	isChecked={stores.pub.myCheckboxList[0].isChecked} 
+	 	handleToggle={actions.toggleCB1}>
+	</Checkbox>
+
+### 参数：
+
+	Select.propTypes = {
+	    selected: PropTypes.string.isRequired,
+	    placeholder: PropTypes.string.isRequired,
+	    options: PropTypes.array.isRequired,
+	    schemaLabel: PropTypes.string,
+	    schemaValue: PropTypes.string,
+	    onChange: PropTypes.func
+	}
+
++ selected 单选列表选择项value
+
++ placeholder 单选列表未选前占位文字
+
++ options 单选列表选项，array类型
+
++ schemaLabel 后选项label绑定字段，可缺省，则label和value同值
+
++ schemaValue 后选项value绑定字段，可缺省，则label和value同值
+
++ onChange 单选列表点选事件，返回选择项的value，可缺省
 
 ## Input输入框
 
@@ -376,7 +414,7 @@ api 详情如下
 
 + inputFn 输入框onChage事件，可缺省
 
-## SmartInput 输入框
+## SmartInput带左边框的输入框
 
 ### 用法：
 
@@ -431,7 +469,7 @@ api 详情如下
 
 + inputFn 输入框onChange事件，返回输入框内容值，可缺省
 
-## Tab选项卡
+## Tabs选项卡
 
 ![tab 图片示例](images/examples/react-tab.gif)
 
@@ -609,5 +647,38 @@ api 详情如下
 
 + isShow 是否显示，bool类型true/false
 
+## Modal模态框
 
+![modal 图片示例](images/examples/react-modal.gif)
+
+### 用法：
+
+	import Modal from '../components/vera/Modal'
+	...
+	<Modal 
+          isShow={store.myModal.isShow} 
+          handleHide={actions.hideModal} 
+          title={store.myModal.title}>
+          <div className="list">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+          </div>
+        </Modal>
+
+### 参数：
+
+	Modal.propTypes = {
+	    title: PropTypes.string.isRequired,
+	    isShow: PropTypes.bool.isRequired,
+	    handleHide: PropTypes.func.isRequired
+	}
+
++ title 模态框题目
+
++ isShow 模态框是否显示，bool类型true/false
+
++ handleHide 模态框隐藏事件
 
