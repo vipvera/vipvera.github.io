@@ -105,6 +105,29 @@ api 详情如下
 
     无
 
+## MsgBannerHide定时隐藏横幅
+
+![banner 图片示例](images/examples/react-banner.gif)
+
+### 用法：
+	import MsgBannerHide from '../components/vera/MsgBannerHide'
+	...
+	<MsgBannerHide msgType="error" text={store.errorsBanner.text} isShow={store.errorsBanner.isShow} />
+
+### 参数：
+
+    Label.propTypes = {
+	    msgType: PropTypes.string.isRequired,
+	    text: PropTypes.string.isRequired,
+	    isShow: PropTypes.bool.isRequired
+	}
+
++ msgType 横幅类型，可选项有"error"和"info"
+
++ text 横幅显示文字
+
++ isShow 是否显示，bool类型true/false
+
 ## Button按钮
 
 ![btn 图片示例](images/examples/react-btn.gif)
@@ -258,12 +281,12 @@ api 详情如下
 	import Input from '../components/vera/Input'
 	...
 	<Input 
-		value={stores.pub.myIpt.val} 
-		type="password" 
-		placeholder="用户名" 
-		id="myIpt" 
-		isError={stores.pub.myIpt.isError} 
-		writeValue={actions.myIptValue}/>
+        id="myIpt" 
+        type="text" 
+        placeholder="用户名"
+        isError={stores.pub.myIpt.isError} 
+        writeValue={actions.myIptValue}
+        blurFn={actions.blurIpt} />
 
 ### 参数：
 
@@ -272,7 +295,11 @@ api 详情如下
 	  	type: PropTypes.string.isRequired,
 	  	placeholder: PropTypes.string.isRequired,
 	  	isError: PropTypes.bool.isRequired,
-	  	writeValue: PropTypes.func.isRequired
+	  	writeValue: PropTypes.func.isRequired,
+	  	formatFn: PropTypes.func,
+	  	blurFn: PropTypes.func,
+	  	focusFn: PropTypes.func,
+	  	inputFn: PropTypes.func
 	}
 
 + id 输入框ID
@@ -283,7 +310,16 @@ api 详情如下
 
 + isError 输入框是否报错显示，bool类型true/false
 
-+ writeValue 输入框值变化事件，返回输入框内容！
++ writeValue 输入框值变化事件，返回输入框内容值
+
++ formatFn 输入框显示值经过格式化，例如手机号显示格式、身份证显示格式和，可缺省
+
++ blurFn 输入框失焦onBlur事件，返回输入框内容值，可缺省
+
++ focusFn 输入框聚焦onFocus事件，可缺省
+
++ inputFn 输入框onChange事件，返回输入框内容值，可缺省
+
 
 ## IdentifyingCodeInput获取验证码输入验证码
 
@@ -308,16 +344,16 @@ api 详情如下
 ### 参数：
 
 	IdentifyingCodeInput.propTypes = {
-	  	id: PropTypes.string.isRequired,
-	  	writeValue: PropTypes.func.isRequired,
-	  	getIdentifyCode: PropTypes.func.isRequired,
-	  	isWithTitle: PropTypes.bool.isRequired,
-	  	isCounting: PropTypes.bool.isRequired,
-	  	handleCount: PropTypes.func.isRequired,
-	  	handleDisCount: PropTypes.func.isRequired,
-	  	isDisabled: PropTypes.bool.isRequired,
-	  	handleAble: PropTypes.func.isRequired,
-	  	handleDisable: PropTypes.func.isRequired
+	    id: PropTypes.string.isRequired,
+	    writeValue: PropTypes.func.isRequired,
+	    getIdentifyCode: PropTypes.func.isRequired,
+	    isWithTitle: PropTypes.bool.isRequired,
+	    isCounting: PropTypes.bool.isRequired,
+	    handleDisCount: PropTypes.func.isRequired,
+	    isDisabled: PropTypes.bool.isRequired,
+	    handleAble: PropTypes.func.isRequired,
+	    handleDisable: PropTypes.func.isRequired,
+	    inputFn: PropTypes.func
 	}
 
 + id 输入框ID
@@ -330,8 +366,6 @@ api 详情如下
 
 + isCounting 是否倒计时，bool类型true/false
 
-+ handleCount 倒计时开始事件
-
 + handleDisCount 倒计时停止事件
 
 + isDisabled “获取验证码”按钮是否可点击，bool类型true/false
@@ -340,42 +374,97 @@ api 详情如下
 
 + handleDisable “获取验证码”按钮不可点击事件
 
++ inputFn 输入框onChage事件，可缺省
+
+## SmartInput 输入框
+
+### 用法：
+
+	import SmartInput from '../components/vera/SmartInput'
+	...
+	<SmartInput 
+      value={store.myIpt.val} 
+      placeholder="仅支持提现卡到储蓄卡"
+      id="bankcard"
+      isError={stores.pub.myIpt.isError}
+      writeValue={actions.myIptValue}
+      isWithTitle={true}
+      title="卡号"
+      type="card"
+      blurFn={actions.blurBankcardIpt}
+      inputType="tel"/>
+
+### 参数：
+
+	SmartInput.propTypes = {
+	    title:PropTypes.string.isRequired,
+	    value: PropTypes.string.isRequired,
+	    id: PropTypes.string.isRequired,
+	    placeholder: PropTypes.string.isRequired,
+	    isError: PropTypes.bool.isRequired,
+	    writeValue: PropTypes.func.isRequired,
+	    isWithTitle: PropTypes.bool.isRequired,
+	    type: PropTypes.string,
+	    inputType: PropTypes.string,
+	    blurFn: PropTypes.func,
+	    inputFn: PropTypes.func,
+	    focusFn: PropTypes.func
+	}
+
++ id 输入框ID
+
++ title 输入框左侧栏文字
+
++ type 输入框类型，可有三种值可选"card"银行卡、"mobile"手机号和"id"身份证号，会对输入进行正则校验
+
++ placeholder 输入框未输入时默认显示文字
+
++ isError 输入框是否报错显示，bool类型true/false
+
++ writeValue 输入框值变化事件，返回输入框内容值
+
++ inputType 输入框类型，同原生input的type，可缺省，默认为text
+
++ blurFn 输入框失焦onBlur事件，返回输入框内容值，可缺省
+
++ focusFn 输入框聚焦onFocus事件，可缺省
+
++ inputFn 输入框onChange事件，返回输入框内容值，可缺省
+
 ## Tab选项卡
 
 ![tab 图片示例](images/examples/react-tab.gif)
 
 ### 用法：
 
-	import Tab from '../components/vera/Tab'
+	import Tabs from '../components/vera/Tabs'
+	import TabList from '../components/vera/TabList'
+	import TabButton from '../components/vera/TabButton'
+	import TabPanel from '../components/vera/TabPanel'
 	...
-	<Tab lists={stores.pub.myTab} schemaTitle="tabButton" schemaContent="tabPanel"></Tab>
+	<Tabs onSelect={this.onTabSelect}>
+        <TabList>
+          <TabButton>交易记录</TabButton>
+          <TabButton>激活记录</TabButton>
+        </TabList>
+        <TabPanel>
+          tab1 content
+        </TabPanel>
+        <TabPanel>
+          tab2 content
+        </TabPanel>
+    </Tabs>
 
 ### 参数：
 
-	Tab.propTypes = {
-	  lists: PropTypes.array.isRequired,
-	  schemaTitle: PropTypes.string.isRequired,
-	  schemaContent: PropTypes.string.isRequired
+	Tabs.propTypes = {
+	  	children: childrenPropType,
+	  	onSelect: PropTypes.func
 	}
 
-+ lists 给tab提供数据的列表，array类型
++ children 选项卡下子内容必须为TabList（Tab按钮列表，其子dom必须放置TabButton）和TabPanel（Tab内容，可任意dom元素）
 
-+ schemaTitle Tab的title绑定的数据字段
-
-+ schemaContent Tab的panel绑定的数据字段
-
-#### 例如：
-	stores = {
-		pub: {
-			myTab:[
-		        {tabButton:"信用卡",tabPanel:"信用卡tab panel内容"},
-		        {tabButton:"储蓄卡",tabPanel:"储蓄卡tab panel内容"},
-		        {tabButton:"测试",tabPanel:"多于2个不显示"}
-		    ]
-		}
-	}
-
-按照移动端的业务需求，Tab可以是一个，最多支持2个Tab切换，如果输入更多，最多显示两个，其余将被忽略！
++ onSelect 选项卡切换事件，返回2个值（第一个是点击切换后的选中项index，第二个是点击切换前的选中项index），可缺省
 
 ## Trace提示框
 
@@ -474,6 +563,9 @@ api 详情如下
 		}).isRequired,
 		children: PropTypes.node,
 		isShow:PropTypes.bool.isRequired,
+		titleClass: PropTypes.string,
+		closePositionRight: PropTypes.bool,
+		isFixedHeight: PropTypes.bool
 	}
 
 + contentData 对话框显示的内容，可以有title 对话框标题、subTitle 对话框副标题，必须有bottom 底部信息例如cancel提供相关显示信息和点击后的操作
@@ -489,6 +581,12 @@ api 详情如下
 				}
 
 + isShow 是否显示，bool类型true/false
+
++ titleClass 对话框title加className来控制样式，可缺省
+
++ closePositionRight 对话框close按钮位置是否为右侧，bool类型true/false，可缺省，默认值为false即按钮在左侧
+
++ isFixedHeight 对话框是否是固定高度，bool类型true/false，可缺省，默认值为false即未达到最大高度前非固定高
 
 ## Loading加载
 
