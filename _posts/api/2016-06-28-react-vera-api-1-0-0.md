@@ -322,6 +322,7 @@ api 详情如下
 ## Input输入框
 
 ![input 图片示例](images/examples/react-input.gif)
+![input 图片示例](images/examples/react-input-pwd.gif)
 
 ### 用法：
 
@@ -424,6 +425,10 @@ api 详情如下
 + inputFn 输入框onChage事件，可缺省
 
 ## SmartInput带左边框的输入框
+
+![input 图片示例](images/examples/react-smartinput-mobile.gif)
+![input 图片示例](images/examples/react-smartinput-card.gif)
+![input 图片示例](images/examples/react-smartinput-id.gif)
 
 ### 用法：
 
@@ -691,3 +696,80 @@ api 详情如下
 
 + handleHide 模态框隐藏事件
 
+## Util公用方法
+
+clearSpace清楚字符串内部空格
+
+### 用法：
+	
+	import clearSpace from '../lib/vera/util/clearSpace'
+	...
+	var str = clearSpace(strWithSpace);
+
+format格式化
+
+### 用法：
+
+	import format from '../lib/vera/util/format'
+	...
+	var str = format(str, type);
+
+### 参数：
+
++ type 	三种："mobile_split"、"card_split"、"idcard_split"，分别格式化成手机号、银行卡号和身份证号
+
+Validate校验
+
+### 用法：
+
+	import Validate from '../lib/vera/util/Validate'
+	...
+	var result = Validate.bankcardNo(val);
+	var result = Validate.fullname(val);
+	var result = Validate.iDCard(val);
+	var result = Validate.cvv2(val);
+	var result = Validate.exptime(val);
+	var result = Validate.mobileNo(val);
+	var result = Validate.authCode(val);
+	var result = Validate.passport(val);
+	var result = Validate.paypass(val);	
+	var result = Validate.email(val);
+	var result = Validate.lenMN(val, min, max);
+	var result = Validate.notEmpty(val);
+
+### 参数：
++ bankcardNo 银行卡号校验
+
++ fullname 用户名校验，2-20位中文格式
+
++ iDCard 身份证号校验
+
++ cvv2 银行卡号背面末尾3位数字校验
+
++ exptime 信用卡有效期校验
+
++ mobileNo 手机号校验
+
++ authCode 6位短信验证码校验
+
++ passport 密码长度校验，6到20位
+
++ paypass 支付密码校验，支持由6-20位字母、数字、特殊字符，至少包含其中2类以上字符组合；全特殊字符：`-=[]\;',./~!@#$%^&*()_+{}|:"<>? 空格
+
++ email 邮箱校验
+
++ lenMN 长度在min和manx之间校验
+
++ notEmpty 不为空校验
+
+encrypt md5加密
+
+### 用法：
+
+	import {pass_encrypt} from '../lib/vera/util/encrypt'
+	...
+	var str = pass_encrypt(pwd,salt);
+
+### 参数：
+
++ pass_encrypt 给密码做md5加密，第二个参数为盐值
