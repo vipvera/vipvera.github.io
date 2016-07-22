@@ -97,11 +97,11 @@ api 详情如下
 
 + isClose 是否带关闭按钮，bool类型true/false
 
-+ closeText close按钮显示的文字
++ closeText close按钮显示的文字，可缺省，默认显示“关闭”二字
 
-+ closeClick close按钮点击回调事件
++ closeClick close按钮点击回调事件，可缺省
 
-+ handleClick 返回箭头点击回调事件
++ handleClick 返回箭头点击回调事件，可缺省
 
 ## Banner横幅
 
@@ -277,9 +277,9 @@ api 详情如下
 
 + text 多选框选项文字
 
-+ isDisabled 多选框是否可选，bool类型true/false，可不填写，默认可选
++ isDisabled 多选框是否可选，bool类型true/false，可缺省，默认可选
 
-+ isChecked 多选框是否已选中，bool类型true/false，可不填写，默认未选中
++ isChecked 多选框是否已选中，bool类型true/false，可缺省，默认未选中
 
 + handleToggle 多选框点击事件，返回当前选项是否选中
 
@@ -385,11 +385,11 @@ api 详情如下
 
 + formatFn 输入框显示值经过格式化，例如手机号显示格式、身份证显示格式和，可缺省
 
-+ blurFn 输入框失焦onBlur事件，返回输入框内容值，可缺省
++ blurFn 输入框失焦onBlur事件，返回输入框值，可缺省
 
 + focusFn 输入框聚焦onFocus事件，可缺省
 
-+ inputFn 输入框onChange事件，返回输入框内容值，可缺省
++ inputFn 输入框onChange事件，返回输入框值，可缺省
 
 
 ## IdentifyingCodeInput获取验证码输入验证码
@@ -431,7 +431,7 @@ api 详情如下
 
 + isWithTitle 是否显示左边“验证码”三个字，bool类型true/false
 
-+ writeValue 输入框值变化事件，返回输入框内容！
++ writeValue 输入框值变化事件，返回输入框值
 
 + getIdentifyCode 点击“获取验证码”按钮事件
 
@@ -445,7 +445,7 @@ api 详情如下
 
 + handleDisable “获取验证码”按钮不可点击事件
 
-+ inputFn 输入框onChage事件，可缺省
++ inputFn 输入框onChage事件，返回输入框值，可缺省
 
 ## SmartInput带左边框的输入框
 
@@ -496,15 +496,15 @@ api 详情如下
 
 + isError 输入框是否报错显示，bool类型true/false
 
-+ writeValue 输入框值变化事件，返回输入框内容值
++ writeValue 输入框值变化事件，返回输入框值
 
 + inputType 输入框类型，同原生input的type，可缺省，默认为text
 
-+ blurFn 输入框失焦onBlur事件，返回输入框内容值，可缺省
++ blurFn 输入框失焦onBlur事件，返回输入框值，可缺省
 
 + focusFn 输入框聚焦onFocus事件，可缺省
 
-+ inputFn 输入框onChange事件，返回输入框内容值，可缺省
++ inputFn 输入框onChange事件，返回输入框值，可缺省
 
 ## Tabs选项卡
 
@@ -537,7 +537,7 @@ api 详情如下
 	  	onSelect: PropTypes.func
 	}
 
-+ children 选项卡下子内容必须为TabList（Tab按钮列表，其子dom必须放置TabButton）和TabPanel（Tab内容，可任意dom元素）
++ children 选项卡下子内容必须为TabList（Tab按钮列表，其子dom必须放置TabButton）和TabPanel（Tab内容，可任意dom元素），并且TabButton数量必须和TabPanel一样
 
 + onSelect 选项卡切换事件，返回2个值（第一个是点击切换后的选中项index，第二个是点击切换前的选中项index），可缺省
 
@@ -577,7 +577,8 @@ api 详情如下
 
 	import Toast from '../components/vera/Toast'
 	...
-	<Toast isShow={stores.pub.toastBlock} contentData={toast}>this is toast</Toast>
+	<Toast isShow={stores.pub.toastBlock} 
+		   contentData={toast} />
 
 ### 参数：
 
@@ -591,7 +592,7 @@ api 详情如下
 	    isShow:PropTypes.bool.isRequired,
 	}
 
-+ contentData 对话框内的显示内容，必须有title 提示标题、text 提示内容、bottom 提示底部信息，例如底部可包含ok和cancel两个按钮相关显示信息和点击后的操作
++ contentData 对话框内的显示内容，可以有title 对话框标题、text对话框正文，必须有bottom 底部操作信息，例如底部可包含ok和cancel两个按钮进行操作
 
 #### 例如：
 	var toast = {
@@ -643,7 +644,7 @@ api 详情如下
 		isFixedHeight: PropTypes.bool
 	}
 
-+ contentData 对话框显示的内容，可以有title 对话框标题、subTitle 对话框副标题，必须有bottom 底部信息例如cancel提供相关显示信息和点击后的操作
++ contentData 对话框显示的内容，可以有title 对话框标题、subTitle 对话框副标题，必须有bottom 底部操作信息，例如cancel按钮进行操作
 
 #### 例如：
 	var dialog = {
@@ -695,7 +696,7 @@ api 详情如下
 	<Modal 
           isShow={stores.pub.modalBlock} 
           handleHide={actions.myModalHide} 
-          title="模态框">
+          title="模态框标题">
           <div className="list">
             <div>1</div>
             <div>2</div>
@@ -713,7 +714,7 @@ api 详情如下
 	    handleHide: PropTypes.func.isRequired
 	}
 
-+ title 模态框题目
++ title 模态框标题
 
 + isShow 模态框是否显示，bool类型true/false
 
@@ -727,7 +728,7 @@ clearSpace清除字符串内部空格
 	
 	import clearSpace from '../lib/vera/util/clearSpace'
 	...
-	var str = clearSpace(strWithSpace);
+	var str = clearSpace(str);
 
 format格式化
 
@@ -739,7 +740,7 @@ format格式化
 
 ### 参数：
 
-+ type 	三种："mobile_split"、"card_split"、"idcard_split"，分别格式化成手机号、银行卡号和身份证号
++ type 	格式化类型，只有三种候选"mobile_split"、"card_split"、"idcard_split"，分别格式化成手机号、银行卡号和身份证号
 
 Validate校验
 
@@ -763,13 +764,13 @@ Validate校验
 ### 参数：
 + bankcardNo 银行卡号校验
 
-+ fullname 用户名校验，2-20位中文格式
++ fullname 用户名校验，2-20位中文
 
 + iDCard 身份证号校验
 
 + cvv2 银行卡号背面末尾3位数字校验
 
-+ exptime 信用卡有效期校验
++ exptime 信用卡有效期校验，4位数字
 
 + mobileNo 手机号校验
 
