@@ -166,7 +166,7 @@ api 详情如下
 
 + isAble 是否可点击，bool类型true/false
 
-+ handleClick 按钮点击事件
++ handleClick 按钮点击事件，可缺省
 
 ## Switcher开关
 
@@ -232,8 +232,9 @@ api 详情如下
 	  	handleToggle: PropTypes.func.isRequired,
 	  	children: childrenPropType
 	}
++ children 子组件，必须为RadioButton
 
-+ handleToggle 单选点击事件，返回当前单选框组选中的项value值！
++ handleToggle 单选点击事件，返回单选框选中项的value
 
 ### 
 	RadioButton.propTypes = {
@@ -281,7 +282,7 @@ api 详情如下
 
 + isChecked 多选框是否已选中，bool类型true/false，可缺省，默认未选中
 
-+ handleToggle 多选框点击事件，返回当前选项是否选中
++ handleToggle 多选框点击事件，返回当前选项是否选中true/false
 
 ## Select下拉框选项
 
@@ -319,8 +320,6 @@ api 详情如下
 
 + schemaValue 后选项value绑定字段，可缺省，则label和value同值
 
-+ onChange 下拉框点选事件，返回选择项的value，可缺省
-
 #### 例如：
 	var stores.pub.mySelect.group = [{'text':'张三', 'val':'name_1'},
 									 {'text':'李四', 'val':'name_2'},
@@ -341,6 +340,8 @@ api 详情如下
         placeholder="姓名"
         options={stores.pub.mySelect.group} 
         onChange={actions.changeSelect} />
+
++ onChange 下拉框点选事件，返回选择项的value，可缺省
 
 ## Input输入框
 
@@ -537,7 +538,7 @@ api 详情如下
 	  	onSelect: PropTypes.func
 	}
 
-+ children 选项卡下子内容必须为TabList（Tab按钮列表，其子dom必须放置TabButton）和TabPanel（Tab内容，可任意dom元素），并且TabButton数量必须和TabPanel一样
++ children 选项卡下子组件必须是TabList（Tab按钮列表，其子组件必须是TabButton）和TabPanel（Tab内容，可是任意dom元素），并且TabButton数量必须和TabPanel一致
 
 + onSelect 选项卡切换事件，返回2个值（第一个是点击切换后的选中项index，第二个是点击切换前的选中项index），可缺省
 
@@ -592,7 +593,7 @@ api 详情如下
 	    isShow:PropTypes.bool.isRequired,
 	}
 
-+ contentData 对话框内的显示内容，可以有title 对话框标题、text对话框正文，必须有bottom 底部操作信息，例如底部可包含ok和cancel两个按钮进行操作
++ contentData 对话框内的显示内容，可以有title 对话框标题、text 对话框正文，必须有bottom 底部操作信息，例如底部可包含ok和cancel两个按钮进行操作
 
 #### 例如：
 	var toast = {
@@ -607,7 +608,7 @@ api 详情如下
 				    }
 				}
 
-+ isShow 是否显示，bool类型true/false
++ isShow 对话框是否显示，bool类型true/false
 
 ## Dialoge对话框
 
@@ -656,9 +657,9 @@ api 详情如下
 					}
 				}
 
-+ isShow 是否显示，bool类型true/false
++ isShow 对话框是否显示，bool类型true/false
 
-+ titleClass 对话框title加className来控制样式，可缺省
++ titleClass 对话框标题加className来控制样式，可缺省
 
 + closePositionRight 对话框close按钮位置是否为右侧，bool类型true/false，可缺省，默认值为false即按钮在左侧
 
