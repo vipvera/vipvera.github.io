@@ -84,7 +84,10 @@ api 详情如下
 	Header.propTypes = {
 	  	text: PropTypes.string.isRequired,
 	  	isBack: PropTypes.bool.isRequired,
-	  	isClose: PropTypes.bool.isRequired
+	  	isClose: PropTypes.bool.isRequired,
+	  	closeText:PropTypes.string,
+  		closeClick:PropTypes.func,
+  		handleClick:PropTypes.func
 	}
 
 + text 展示的文字
@@ -92,6 +95,12 @@ api 详情如下
 + isBack 是否带返回箭头，bool类型true/false
 
 + isClose 是否带关闭按钮，bool类型true/false
+
++ closeText close按钮显示的文字
+
++ closeClick close按钮点击回调事件
+
++ handleClick 返回箭头点击回调事件
 
 ## Banner横幅
 
@@ -107,7 +116,7 @@ api 详情如下
 
 ## MsgBannerHide定时隐藏横幅
 
-![banner 图片示例](images/examples/react-banner.gif)
+![banner 图片示例](images/examples/react-hideBanner.gif)
 
 ### 用法：
 	import MsgBannerHide from '../components/vera/MsgBannerHide'
@@ -272,7 +281,7 @@ api 详情如下
 
 + handleToggle 多选框点击事件，返回当前选项是否选中
 
-## Select单选列表
+## Select下拉框选项
 
 ![select 图片示例](images/examples/react-select.gif)
 
@@ -298,17 +307,17 @@ api 详情如下
 	    onChange: PropTypes.func
 	}
 
-+ selected 单选列表选择项value
++ selected 下拉框选中value
 
-+ placeholder 单选列表未选前占位文字
++ placeholder 下拉框选项未选前占位文字
 
-+ options 单选列表选项，array类型
++ options 下拉框选项，array类型
 
 + schemaLabel 后选项label绑定字段，可缺省，则label和value同值
 
 + schemaValue 后选项value绑定字段，可缺省，则label和value同值
 
-+ onChange 单选列表点选事件，返回选择项的value，可缺省
++ onChange 下拉框点选事件，返回选择项的value，可缺省
 
 ## Input输入框
 
@@ -480,7 +489,7 @@ api 详情如下
 	import TabButton from '../components/vera/TabButton'
 	import TabPanel from '../components/vera/TabPanel'
 	...
-	<Tabs onSelect={this.onTabSelect}>
+	<Tabs onSelect={this.myTabsSelect}>
         <TabList>
           <TabButton>交易记录</TabButton>
           <TabButton>激活记录</TabButton>
@@ -656,9 +665,9 @@ api 详情如下
 	import Modal from '../components/vera/Modal'
 	...
 	<Modal 
-          isShow={store.myModal.isShow} 
-          handleHide={actions.hideModal} 
-          title={store.myModal.title}>
+          isShow={stores.pub.modalBlock} 
+          handleHide={actions.myModalHide} 
+          title="模态框">
           <div className="list">
             <div>1</div>
             <div>2</div>
