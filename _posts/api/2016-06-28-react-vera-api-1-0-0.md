@@ -77,7 +77,8 @@ api 详情如下
 	<Header 
 		text="快捷支付" 
 		isBack={true} 
-		isClose={true}/>
+		isClose={true}
+		closeText="close"/>
 
 ### 参数:	
 
@@ -121,7 +122,10 @@ api 详情如下
 ### 用法：
 	import MsgBannerHide from '../components/vera/MsgBannerHide'
 	...
-	<MsgBannerHide msgType="error" text={store.errorsBanner.text} isShow={store.errorsBanner.isShow} />
+	<MsgBannerHide 
+		msgType="error" 
+		text={store.errorsBanner.text} 
+		isShow={store.errorsBanner.isShow} />
 
 ### 参数：
 
@@ -199,28 +203,26 @@ api 详情如下
 	...
 	<Radio handleToggle={actions.toggleRadioGroup}>
       	<RadioButton 
-      		text={stores.pub.myRadioGroup.group[0].text} 
-      		isDisabled={stores.pub.myRadioGroup.group[0].isDisabled} 
-      		isChecked={stores.pub.myRadioGroup.group[0].isChecked} 
-      		value={stores.pub.myRadioGroup.group[0].value} >
+      		text="我是选项1"
+      		isDisabled={false} 
+      		isChecked={false} 
+      		value="val_radio_1" >
       	</RadioButton>
       	<RadioButton 
-      		text={stores.pub.myRadioGroup.group[1].text} 
-      		isDisabled={stores.pub.myRadioGroup.group[1].isDisabled} 
-      		isChecked={stores.pub.myRadioGroup.group[1].isChecked} 
-      		value={stores.pub.myRadioGroup.group[1].value}>
+      		text="我是选项2" 
+      		isDisabled={false} 
+      		isChecked={true} 
+      		value="val_radios_2">
       	</RadioButton>
       	<RadioButton 
-      		text={stores.pub.myRadioGroup.group[2].text} 
-      		isDisabled={stores.pub.myRadioGroup.group[2].isDisabled} 
-      		isChecked={stores.pub.myRadioGroup.group[2].isChecked} 
-      		value={stores.pub.myRadioGroup.group[2].value} >
+      		text="我是选项3"
+      		value="val_radio_3" >
       	</RadioButton>
       	<RadioButton 
-      		text={stores.pub.myRadioGroup.group[3].text} 
-      		isDisabled={stores.pub.myRadioGroup.group[3].isDisabled} 
-      		isChecked={stores.pub.myRadioGroup.group[3].isChecked} 
-      		value={stores.pub.myRadioGroup.group[3].value} >
+      		text="我是选项4disabled不可点击" 
+      		isDisabled={true} 
+      		isChecked={true} 
+      		value="val_radio_4" >
       	</RadioButton>
     </Radio>
 
@@ -258,9 +260,9 @@ api 详情如下
 	import Checkbox from '../components/vera/Checkbox'
 	...
 	<Checkbox 
-	 	text={stores.pub.myCheckboxList[0].text} 
-	 	isDisabled={stores.pub.myCheckboxList[0].isDisabled } 
-	 	isChecked={stores.pub.myCheckboxList[0].isChecked} 
+	 	text="checkbox选项1"
+	 	isDisabled={true} 
+	 	isChecked={false} 
 	 	handleToggle={actions.toggleCB1}>
 	</Checkbox>
 
@@ -320,7 +322,9 @@ api 详情如下
 + onChange 下拉框点选事件，返回选择项的value，可缺省
 
 #### 例如：
-	var stores.pub.mySelect.group = [{'text':'张三', 'val':'name_1'},{'text':'李四', 'val':'name_2'},{'text':'王五', 'val':'name_3'}]
+	var stores.pub.mySelect.group = [{'text':'张三', 'val':'name_1'},
+									 {'text':'李四', 'val':'name_2'},
+									 {'text':'王五', 'val':'name_3'}]
 	<Select 
         id="usernamesSlt"
         selected={stores.pub.mySelect.selectedValue} 
