@@ -289,12 +289,12 @@ api 详情如下
 
 	import Select from '../components/vera/Select'
 	...
-	<Checkbox 
-	 	text={stores.pub.myCheckboxList[0].text} 
-	 	isDisabled={stores.pub.myCheckboxList[0].isDisabled } 
-	 	isChecked={stores.pub.myCheckboxList[0].isChecked} 
-	 	handleToggle={actions.toggleCB1}>
-	</Checkbox>
+	<Select 
+        id="usernamesSlt"
+        selected={stores.pub.mySelect.selectedValue} 
+        placeholder="下拉框占位符"
+        options={stores.pub.mySelect.group} 
+        onChange={actions.changeSelect} />
 
 ### 参数：
 
@@ -311,13 +311,32 @@ api 详情如下
 
 + placeholder 下拉框选项未选前占位文字
 
-+ options 下拉框选项，array类型
++ options 下拉框选项，array类型，每一个选项可是对象，则使用schemaLabel和schemeValue绑定显示的文字和值，也可以是值，不使用schemaLabel和schemaValue绑定，则值和显示文字是一样的
 
 + schemaLabel 后选项label绑定字段，可缺省，则label和value同值
 
 + schemaValue 后选项value绑定字段，可缺省，则label和value同值
 
 + onChange 下拉框点选事件，返回选择项的value，可缺省
+
+#### 例如：
+	var stores.pub.mySelect.group = [{'text':'张三', 'val':'name_1'},{'text':'李四', 'val':'name_2'},{'text':'王五', 'val':'name_3'}]
+	<Select 
+        id="usernamesSlt"
+        selected={stores.pub.mySelect.selectedValue} 
+        placeholder="姓名"
+        options={stores.pub.mySelect.group} 
+        schemaLabel="text"
+        schemaValue="val"
+        onChange={actions.changeSelect} />
+    或
+    var stores.pub.mySelect.group = ['张三', '李四', '王五']
+	<Select 
+        id="usernamesSlt"
+        selected={stores.pub.mySelect.selectedValue} 
+        placeholder="姓名"
+        options={stores.pub.mySelect.group} 
+        onChange={actions.changeSelect} />
 
 ## Input输入框
 
@@ -698,7 +717,7 @@ api 详情如下
 
 ## Util公用方法
 
-clearSpace清楚字符串内部空格
+clearSpace清除字符串内部空格
 
 ### 用法：
 	
