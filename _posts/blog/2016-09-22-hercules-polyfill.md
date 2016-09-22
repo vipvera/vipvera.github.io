@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: hercules polyfill 
@@ -88,7 +87,7 @@ h5 页面常用的场景是嵌入特卖会的 app 中。嵌入特卖会的app的
 <iframe src="http://wikieswan.github.io/vera3/example/index.html#herculespolyfill"
  style="width:375px; height: 667px;border: 2px solid #ddd;border-bottom: 50px solid #6D6767;border-top: 50px solid #6D6767;border-radius: 10px;"></iframe>
 
- 
+
 
 关于特卖会提供的 hercules.js 详细信息，可以参考下面的链接
 
